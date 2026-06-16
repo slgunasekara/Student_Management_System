@@ -16,60 +16,7 @@ SAMS allows admin staff and lecturers to:
 
 ---
 
-## 🏗️ Architecture
 
-```
-Presentation Layer  →  JavaFX Controllers + FXML Views
-       ↓
-Service / BO Layer  →  Business Objects (BOFactory → BOImpl)
-       ↓
-Data Access Layer   →  DAO Interfaces + Hibernate Implementations
-       ↓
-Database            →  MySQL via Hibernate ORM
-```
-
-### Package Structure
-```
-lk.ijse.sams
-├── AppInitializer.java          ← JavaFX entry point
-├── config/
-│   └── FactoryConfiguration.java  ← Hibernate SessionFactory (Singleton)
-├── entity/                      ← JPA/Hibernate Entities
-│   ├── User, Course, Subject, Student, Lecturer, ClassSession, Attendance
-├── dao/
-│   ├── SuperDAO.java
-│   ├── CrudDAO.java             ← Generic CRUD interface
-│   ├── DAOTypes.java
-│   ├── DAOFactory.java
-│   └── custom/
-│       ├── UserDAO, CourseDAO, SubjectDAO, StudentDAO,
-│       │   LecturerDAO, ClassSessionDAO, AttendanceDAO
-│       └── impl/
-│           └── (All DAO implementations using Hibernate)
-├── bo/
-│   ├── SuperBO.java
-│   ├── BOTypes.java
-│   ├── BOFactory.java
-│   ├── exception/
-│   │   └── DuplicateException, NotFoundException, ValidationException, LoginException
-│   └── custom/
-│       ├── UserBO, CourseBO, SubjectBO, StudentBO,
-│       │   LecturerBO, ClassSessionBO, AttendanceBO
-│       └── impl/
-│           └── (All BO implementations with business logic)
-├── dto/
-│   ├── UserDTO, CourseDTO, SubjectDTO, StudentDTO,
-│   │   LecturerDTO, ClassSessionDTO, AttendanceDTO
-│   └── tm/
-│       └── StudentTM, AttendanceTM (JavaFX TableView models)
-├── controller/
-│   ├── LoginController, DashboardController, HomeController
-│   ├── CourseController, SubjectController, StudentController
-│   ├── LecturerController, ClassSessionController
-│   ├── AttendanceController, ReportController, UserController
-└── util/
-    └── SessionManager.java      ← In-memory user session
-```
 
 ---
 
@@ -141,7 +88,24 @@ Or in IntelliJ: Run `AppInitializer.java`
 
 ---
 
-## 📸 Features
+## Security
+
+- Passwords hashed with **BCrypt** (never stored in plain text)
+- Role-based access: Admin sees User Management; Lecturer does not
+- Session management via in-memory `SessionManager`
+
+---
+
+## 📝 Notes
+
+- Press **F11** to toggle fullscreen mode
+- All IDs are auto-generated (e.g., STU001, C001, SES001)
+- Attendance records are **upserted** — marking the same session twice updates the existing record
+
+
+
+
+##  Features
 
 ### 🏠 Dashboard
 - Summary cards: Total Courses, Students, Lecturers, Sessions
@@ -183,42 +147,13 @@ Or in IntelliJ: Run `AppInitializer.java`
 - **Export to CSV**
 
 ---
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3890623b-17ed-48ef-8765-5a673fc83597" />
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/67ca7dd2-af4c-46b8-9cd6-813f08d26e7c" />
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/244e03ba-bf76-4e55-b455-b2070c63bdae" />
+<img width="1600" height="867" alt="image" src="https://github.com/user-attachments/assets/c747e5bd-dd7b-49fe-a976-f5770930c47a" />
+<img width="1600" height="866" alt="image" src="https://github.com/user-attachments/assets/d35d9eb1-dfe2-4421-90d2-84188bcf049e" />
+<img width="1364" height="739" alt="image" src="https://github.com/user-attachments/assets/39397ed1-3142-41c3-8496-a1aca6fc7257" />
 
-## 🗂️ Database Schema
-
-```
-courses ────< subjects ────< class_sessions >──── lecturers
-                                    │
-                                attendance
-                                    │
-students ──────────────────────────┘
-```
-
----
-
-## 📁 File Structure
-
-```
-src/main/
-├── java/lk/ijse/sams/         ← All Java source files
-├── resources/
-│   ├── hibernate.cfg.xml      ← Hibernate configuration
-│   ├── sams_db.sql            ← Database schema + sample data
-│   └── view/                  ← FXML UI files
-│       ├── LoginView.fxml
-│       ├── DashboardView.fxml
-│       ├── HomeView.fxml
-│       ├── CourseView.fxml
-│       ├── SubjectView.fxml
-│       ├── StudentView.fxml
-│       ├── LecturerView.fxml
-│       ├── ClassSessionView.fxml
-│       ├── AttendanceView.fxml
-│       ├── ReportView.fxml
-│       └── UserView.fxml
-```
-
----
 
 ## 🎨 UI Theme
 
@@ -230,21 +165,12 @@ src/main/
 
 ---
 
-## 🔒 Security
 
-- Passwords hashed with **BCrypt** (never stored in plain text)
-- Role-based access: Admin sees User Management; Lecturer does not
-- Session management via in-memory `SessionManager`
 
----
 
-## 📝 Notes
 
-- Press **F11** to toggle fullscreen mode
-- All IDs are auto-generated (e.g., STU001, C001, SES001)
-- Attendance records are **upserted** — marking the same session twice updates the existing record
 
-## Screen Shots
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3890623b-17ed-48ef-8765-5a673fc83597" />
+
+
 
 

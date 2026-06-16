@@ -154,15 +154,6 @@ Or in IntelliJ: Run `AppInitializer.java`
 <img width="1600" height="866" alt="image" src="https://github.com/user-attachments/assets/d35d9eb1-dfe2-4421-90d2-84188bcf049e" />
 <img width="1364" height="739" alt="image" src="https://github.com/user-attachments/assets/39397ed1-3142-41c3-8496-a1aca6fc7257" />
 
-
-## 🎨 UI Theme
-
-- **Primary color**: Deep Red (`#7f1d1d` → `#ef4444`)
-- **Background**: Clean White / Light Gray (`#f9fafb`)
-- **Accent**: Red gradient buttons with drop shadows
-- All cards use **rounded corners** and **subtle drop shadows**
-- Fully **responsive layout** — sidebar + content area
-
 ---
 
 

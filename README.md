@@ -1,11 +1,11 @@
-# 🎓 SAMS – Student Attendance Management System
+#  SAMS – Student Attendance Management System
 
 A full-featured **JavaFX** desktop application for managing student attendance in educational institutions.
 Built using **Layered Architecture** (Presentation → Service/BO → Data Access) with **Hibernate ORM** and **MySQL**.
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
 SAMS allows admin staff and lecturers to:
 - Manage **Courses**, **Subjects**, **Students**, and **Lecturers**
@@ -20,7 +20,7 @@ SAMS allows admin staff and lecturers to:
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Layer          | Technology                    |
 |----------------|-------------------------------|
@@ -34,7 +34,7 @@ SAMS allows admin staff and lecturers to:
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 - **Java 21** (JDK)
@@ -73,7 +73,7 @@ Or in IntelliJ: Run `AppInitializer.java`
 
 ---
 
-## 🔑 Default Login Credentials
+##  Default Login Credentials
 
 | Role    | Username | Password    |
 |---------|----------|-------------|
@@ -96,7 +96,7 @@ Or in IntelliJ: Run `AppInitializer.java`
 
 ---
 
-## 📝 Notes
+##  Notes
 
 - Press **F11** to toggle fullscreen mode
 - All IDs are auto-generated (e.g., STU001, C001, SES001)
@@ -107,40 +107,40 @@ Or in IntelliJ: Run `AppInitializer.java`
 
 ##  Features
 
-### 🏠 Dashboard
+###  Dashboard
 - Summary cards: Total Courses, Students, Lecturers, Sessions
 - Quick action tiles for common tasks
 - Live date/time clock
 
-### 📚 Course Management
+###  Course Management
 - Add, edit, delete courses with code and duration
 - Live search filtering
 
-### 📖 Subject Management
+###  Subject Management
 - Subjects linked to courses
 - Credit hour tracking
 
-### 👨‍🎓 Student Management
+###  Student Management
 - Auto-generated student ID and registration number
 - Date of birth, contact details, course assignment
 - Search by name, reg number, or email
 
-### 👨‍🏫 Lecturer Management
+###  Lecturer Management
 - Qualification and department tracking
 - Active/inactive status
 
-### 🗓️ Class Scheduling
+###  Class Scheduling
 - Schedule sessions with date, time (HH:mm), and venue
 - Filter by course → subject → lecturer
 
-### ✅ Attendance Marking
+###  Attendance Marking
 - Select course → subject → session
 - Inline ComboBox to mark each student: PRESENT / ABSENT / LATE / EXCUSED
 - Bulk "All Present" / "All Absent" buttons
 - Live summary counter (Present / Absent / Late / Total)
 - Save all in one click
 
-### 📊 Attendance Reports
+###  Attendance Reports
 - Filter by: All / By Student / By Course / By Date Range
 - Colour-coded status cells (green/red/orange)
 - Attendance percentage calculation

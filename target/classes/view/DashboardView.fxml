@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- SAMS Dashboard - Red & White Theme -->
+<AnchorPane prefHeight="768" prefWidth="1280"
+            style="-fx-background-color: #f9fafb;"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="lk.ijse.sams.controller.DashboardController">
+
+    <HBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- ═══════════════════════════════════════════
+             SIDEBAR – Deep Red
+             ═══════════════════════════════════════════ -->
+        <VBox prefWidth="240" spacing="0"
+              style="-fx-background-color: linear-gradient(to bottom, #7f1d1d, #991b1b, #b91c1c);
+                     -fx-effect: dropshadow(gaussian,rgba(127,29,29,0.4),18,0,4,0);">
+
+            <!-- Logo Area -->
+            <VBox alignment="CENTER" spacing="6"
+                  style="-fx-padding: 28 20 20 20; -fx-background-color: rgba(0,0,0,0.2);">
+                <Label text="🎓" style="-fx-font-size: 36px;"/>
+                <Label text="SAMS"
+                       style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label text="Attendance System"
+                       style="-fx-font-size: 11px; -fx-text-fill: #fca5a5;"/>
+            </VBox>
+
+            <!-- User Info -->
+            <VBox alignment="CENTER" spacing="4"
+                  style="-fx-padding: 12 20; -fx-background-color: rgba(0,0,0,0.15);">
+                <Label fx:id="lblUserName"
+                       text="Administrator"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label fx:id="lblUserRole"
+                       text="ADMIN"
+                       style="-fx-font-size: 11px; -fx-text-fill: #fca5a5;
+                              -fx-background-color: rgba(255,255,255,0.15);
+                              -fx-background-radius: 10; -fx-padding: 2 8;"/>
+            </VBox>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <!-- Nav Label -->
+            <Label text="MAIN MENU"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold;
+                          -fx-text-fill: #fca5a5; -fx-padding: 14 20 6 20;
+                          -fx-letter-spacing: 1.5;"/>
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="btnDashboard" onAction="#navigate"
+                    text="🏠  Dashboard" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: rgba(255,255,255,0.15);
+                           -fx-text-fill: white; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnCourses" onAction="#navigate"
+                    text="📚  Manage Courses" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnSubjects" onAction="#navigate"
+                    text="📖  Manage Subjects" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnStudents" onAction="#navigate"
+                    text="👨‍🎓  Manage Students" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnLecturers" onAction="#navigate"
+                    text="👨‍🏫  Manage Lecturers" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnClasses" onAction="#navigate"
+                    text="🗓  Class Scheduling" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnAttendance" onAction="#navigate"
+                    text="✅  Mark Attendance" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+            <Button fx:id="btnReports" onAction="#navigate"
+                    text="📊  Attendance Reports" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.2);"/>
+            <Label text="SYSTEM"
+                   style="-fx-font-size: 10px; -fx-font-weight: bold;
+                          -fx-text-fill: #fca5a5; -fx-padding: 10 20 6 20;"/>
+
+            <Button fx:id="btnUsers" onAction="#navigate"
+                    text="👤  User Management" prefWidth="240" prefHeight="44"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #fecaca; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+
+            <!-- Spacer -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Logout -->
+            <Button onAction="#handleLogout" text="⬅  Logout"
+                    prefWidth="240" prefHeight="48"
+                    style="-fx-background-color: rgba(0,0,0,0.3);
+                           -fx-text-fill: white; -fx-font-size: 13px;
+                           -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;
+                           -fx-cursor: hand; -fx-border-color: transparent;"/>
+        </VBox>
+
+        <!-- ═══════════════════════════════════════════
+             MAIN CONTENT AREA
+             ═══════════════════════════════════════════ -->
+        <VBox HBox.hgrow="ALWAYS" spacing="0">
+
+            <!-- Top Bar -->
+            <HBox alignment="CENTER_LEFT" prefHeight="60" spacing="12"
+                  style="-fx-background-color: white;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+                         -fx-padding: 0 24;">
+                <Label fx:id="lblPageTitle"
+                       text="Dashboard"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #7f1d1d;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblDateTime"
+                       style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+            </HBox>
+
+            <!-- Content Area — sub-views load here -->
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #f9fafb; -fx-padding: 20;"/>
+        </VBox>
+    </HBox>
+</AnchorPane>

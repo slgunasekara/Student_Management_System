@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" style="-fx-padding: 0;"
+      xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/21"
+      fx:controller="lk.ijse.sams.controller.LecturerController">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Manage Lecturers"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="txtSearch" prefWidth="240" prefHeight="36"
+                   promptText="🔍  Search lecturers..."
+                   style="-fx-border-color: #fecaca; -fx-border-width: 1.5;
+                          -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 0 12; -fx-font-size: 13px;"/>
+        <Button onAction="#handleNew" text="+ New Lecturer"
+                style="-fx-background-color: #b91c1c; -fx-text-fill: white; -fx-font-weight: bold;
+                       -fx-font-size: 13px; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 18;"/>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <!-- Form -->
+        <VBox spacing="14" prefWidth="300"
+              style="-fx-background-color: white; -fx-background-radius: 14;
+                     -fx-padding: 22; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);">
+            <Label text="Lecturer Details"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #991b1b;"/>
+
+            <VBox spacing="4">
+                <Label text="Lecturer ID" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtLecturerId" prefHeight="36" editable="false"
+                           style="-fx-border-color: #e5e7eb; -fx-border-radius: 7;
+                                  -fx-background-radius: 7; -fx-background-color: #f9fafb;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Full Name" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtName" prefHeight="36" promptText="Dr. / Mr. / Ms. ..."
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Email" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtEmail" prefHeight="36" promptText="lecturer@institution.lk"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Phone" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtPhone" prefHeight="36" promptText="0771234567"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Qualification" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtQualification" prefHeight="36" promptText="e.g. PhD in Computer Science"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Department" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtDepartment" prefHeight="36" promptText="e.g. IT Department"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <CheckBox fx:id="chkActive" selected="true"
+                          style="-fx-font-size: 13px; -fx-text-fill: #374151;"/>
+                <Label text="Active" style="-fx-font-size: 13px; -fx-text-fill: #374151;"/>
+            </HBox>
+
+            <Label fx:id="lblError" wrapText="true"
+                   style="-fx-text-fill: #dc2626; -fx-font-size: 11px;" text=""/>
+
+            <HBox spacing="8">
+                <Button fx:id="btnSave" onAction="#handleSave" text="💾  Save"
+                        prefWidth="118" prefHeight="38"
+                        style="-fx-background-color: #b91c1c; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                <Button fx:id="btnUpdate" onAction="#handleUpdate" text="✏  Update"
+                        prefWidth="118" prefHeight="38" disable="true"
+                        style="-fx-background-color: #d97706; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            </HBox>
+            <HBox spacing="8">
+                <Button fx:id="btnDelete" onAction="#handleDelete" text="🗑  Delete"
+                        prefWidth="118" prefHeight="38" disable="true"
+                        style="-fx-background-color: #dc2626; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                <Button onAction="#handleClear" text="↺  Clear"
+                        prefWidth="118" prefHeight="38"
+                        style="-fx-background-color: #6b7280; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+
+        <!-- Table -->
+        <VBox spacing="12" HBox.hgrow="ALWAYS"
+              style="-fx-background-color: white; -fx-background-radius: 14;
+                     -fx-padding: 22; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);">
+            <HBox alignment="CENTER_LEFT">
+                <Label text="Lecturer List" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #991b1b;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lblCount" style="-fx-font-size: 12px; -fx-text-fill: #6b7280;" text="0 records"/>
+            </HBox>
+            <TableView fx:id="tblLecturers" VBox.vgrow="ALWAYS"
+                       style="-fx-border-color: #fee2e2; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <columns>
+                    <TableColumn fx:id="colId"            text="ID"            prefWidth="70"/>
+                    <TableColumn fx:id="colName"          text="Name"          prefWidth="160"/>
+                    <TableColumn fx:id="colEmail"         text="Email"         prefWidth="180"/>
+                    <TableColumn fx:id="colPhone"         text="Phone"         prefWidth="110"/>
+                    <TableColumn fx:id="colQualification" text="Qualification" prefWidth="180"/>
+                    <TableColumn fx:id="colDepartment"    text="Department"    prefWidth="130"/>
+                    <TableColumn fx:id="colActive"        text="Status"        prefWidth="80"/>
+                </columns>
+                <placeholder><Label text="No lecturers found." style="-fx-text-fill: #9ca3af;"/></placeholder>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

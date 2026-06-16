@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<!-- SAMS Login – Red & White Split Theme -->
+<AnchorPane prefHeight="800" prefWidth="1280"
+            style="-fx-background-color: #fff5f5;"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="lk.ijse.sams.controller.LoginController">
+
+    <HBox AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- LEFT: Deep Red Gradient Branding Panel -->
+        <VBox alignment="CENTER" spacing="0"
+              style="-fx-background-color: linear-gradient(to bottom right, #7f1d1d, #991b1b, #b91c1c, #dc2626, #ef4444);
+                     -fx-padding: 60 60;"
+              HBox.hgrow="ALWAYS">
+            <VBox alignment="CENTER" spacing="24">
+
+                <!-- Logo / Icon -->
+                <Label text="🎓"
+                       style="-fx-font-size: 78px;
+                              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 20, 0, 0, 6);"/>
+
+                <!-- App Name Block -->
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="SAMS"
+                           style="-fx-font-size: 52px; -fx-font-weight: bold;
+                                  -fx-text-fill: white;
+                                  -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.25),10,0,0,3);"/>
+                    <Label text="Student Attendance Management System"
+                           style="-fx-font-size: 15px; -fx-text-fill: #fecaca; -fx-font-weight: bold;"/>
+                    <Label text="Empowering Education Through Smart Tracking"
+                           style="-fx-font-size: 13px; -fx-text-fill: #fca5a5;"/>
+                </VBox>
+
+                <!-- Decorative Divider -->
+                <HBox alignment="CENTER" spacing="14" style="-fx-padding: 4 0;">
+                    <Line startX="0" endX="60"
+                          style="-fx-stroke: rgba(252,165,165,0.55); -fx-stroke-width: 1.5;"/>
+                    <Label text="✦" style="-fx-text-fill: #fca5a5; -fx-font-size: 13px;"/>
+                    <Line startX="0" endX="60"
+                          style="-fx-stroke: rgba(252,165,165,0.55); -fx-stroke-width: 1.5;"/>
+                </HBox>
+
+                <!-- Feature Highlights -->
+                <VBox alignment="CENTER_LEFT" spacing="10"
+                      style="-fx-padding: 20 30; -fx-background-color: rgba(0,0,0,0.15);
+                             -fx-background-radius: 14;">
+                    <Label text="📋  Track Attendance Effortlessly"
+                           style="-fx-text-fill: #fef2f2; -fx-font-size: 13px;"/>
+                    <Label text="📊  Generate Detailed Reports"
+                           style="-fx-text-fill: #fef2f2; -fx-font-size: 13px;"/>
+                    <Label text="🎓  Manage Courses &amp; Subjects"
+                           style="-fx-text-fill: #fef2f2; -fx-font-size: 13px;"/>
+                    <Label text="👨‍🏫  Lecturer &amp; Student Profiles"
+                           style="-fx-text-fill: #fef2f2; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <!-- Quote -->
+                <Label text="❝ Building the future, one attendance at a time ❞"
+                       style="-fx-text-fill: rgba(254,202,202,0.9);
+                              -fx-font-size: 13px; -fx-font-style: italic;
+                              -fx-padding: 10 0 0 0;"/>
+            </VBox>
+        </VBox>
+
+        <!-- RIGHT: Clean White Login Form -->
+        <VBox alignment="CENTER" prefWidth="500"
+              style="-fx-background-color: white;
+                     -fx-effect: dropshadow(gaussian, rgba(127,29,29,0.18), 30, 0, -8, 0);">
+            <VBox alignment="TOP_CENTER" spacing="0"
+                  style="-fx-padding: 55 52 44 52;">
+
+                <!-- Header -->
+                <VBox alignment="CENTER" spacing="6" style="-fx-padding: 0 0 32 0;">
+                    <Label text="Welcome Back 👋"
+                           style="-fx-font-size: 30px; -fx-font-weight: bold;
+                                  -fx-text-fill: #7f1d1d;"/>
+                    <Label text="Sign in to your account to continue"
+                           style="-fx-font-size: 13px; -fx-text-fill: #6b7280;"/>
+                </VBox>
+
+                <!-- Username Field -->
+                <VBox spacing="7" style="-fx-padding: 0 0 18 0;">
+                    <Label text="Username"
+                           style="-fx-font-weight: bold; -fx-text-fill: #991b1b; -fx-font-size: 13px;"/>
+                    <TextField fx:id="txtUsername"
+                               prefHeight="46" prefWidth="396"
+                               promptText="Enter your username"
+                               style="-fx-border-color: #fecaca; -fx-border-width: 2;
+                                      -fx-border-radius: 10; -fx-background-radius: 10;
+                                      -fx-padding: 0 14; -fx-font-size: 14px;
+                                      -fx-background-color: #fffafa;"/>
+                    <Label fx:id="lblUsernameError"
+                           style="-fx-text-fill: #dc2626; -fx-font-size: 11px;" text=""/>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="7" style="-fx-padding: 0 0 8 0;">
+                    <Label text="Password"
+                           style="-fx-font-weight: bold; -fx-text-fill: #991b1b; -fx-font-size: 13px;"/>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <PasswordField fx:id="pfPassword"
+                                       prefHeight="46" prefWidth="342"
+                                       promptText="Enter your password"
+                                       style="-fx-border-color: #fecaca; -fx-border-width: 2;
+                                              -fx-border-radius: 10; -fx-background-radius: 10;
+                                              -fx-padding: 0 14; -fx-font-size: 14px;
+                                              -fx-background-color: #fffafa;"/>
+                        <TextField fx:id="txtPasswordVisible"
+                                   managed="false" prefHeight="46" prefWidth="342"
+                                   promptText="Enter your password"
+                                   style="-fx-border-color: #fecaca; -fx-border-width: 2;
+                                          -fx-border-radius: 10; -fx-background-radius: 10;
+                                          -fx-padding: 0 14; -fx-font-size: 14px;
+                                          -fx-background-color: #fffafa;"
+                                   visible="false"/>
+                        <Button fx:id="btnTogglePassword"
+                                onAction="#handleTogglePassword"
+                                prefHeight="46" prefWidth="46" text="👁"
+                                style="-fx-background-color: #fff5f5;
+                                       -fx-border-color: #fecaca; -fx-border-width: 2;
+                                       -fx-border-radius: 10; -fx-background-radius: 10;
+                                       -fx-cursor: hand; -fx-font-size: 15px;"/>
+                    </HBox>
+                    <Label fx:id="lblPasswordError"
+                           style="-fx-text-fill: #dc2626; -fx-font-size: 11px;" text=""/>
+                </VBox>
+
+                <!-- Error message -->
+                <Label fx:id="lblError" prefWidth="396" wrapText="true"
+                       style="-fx-text-fill: #dc2626; -fx-font-size: 12px;
+                              -fx-padding: 8 14; -fx-background-radius: 8;" text=""/>
+
+                <!-- Login Button -->
+                <Button fx:id="btnLogin" onAction="#handleLogin"
+                        prefHeight="50" prefWidth="396"
+                        text="Sign In  →"
+                        style="-fx-background-color: linear-gradient(to right, #b91c1c, #ef4444);
+                               -fx-text-fill: white; -fx-font-weight: bold;
+                               -fx-font-size: 15px; -fx-cursor: hand;
+                               -fx-background-radius: 12;
+                               -fx-effect: dropshadow(gaussian, rgba(185,28,28,0.45), 16, 0, 0, 5);"/>
+
+                <Region prefHeight="16"/>
+
+                <!-- Footer -->
+                <Label text="© 2025 SAMS – Student Attendance Management System"
+                       style="-fx-text-fill: #9ca3af; -fx-font-size: 11px;
+                              -fx-padding: 10 0 0 0;"/>
+            </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

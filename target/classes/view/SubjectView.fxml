@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" style="-fx-padding: 0;"
+      xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/21"
+      fx:controller="lk.ijse.sams.controller.SubjectController">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="Manage Subjects"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button onAction="#handleNew" text="+ New Subject"
+                style="-fx-background-color: #b91c1c; -fx-text-fill: white; -fx-font-weight: bold;
+                       -fx-font-size: 13px; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 18;"/>
+    </HBox>
+
+    <HBox spacing="16" VBox.vgrow="ALWAYS">
+        <VBox spacing="14" prefWidth="300"
+              style="-fx-background-color: white; -fx-background-radius: 14;
+                     -fx-padding: 22; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);">
+            <Label text="Subject Details"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #991b1b;"/>
+
+            <VBox spacing="4">
+                <Label text="Subject ID" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtSubjectId" prefHeight="36" editable="false"
+                           style="-fx-border-color: #e5e7eb; -fx-border-radius: 7;
+                                  -fx-background-radius: 7; -fx-background-color: #f9fafb;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Subject Name" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtSubjectName" prefHeight="36" promptText="e.g. Object Oriented Programming"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Subject Code" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtSubjectCode" prefHeight="36" promptText="e.g. OOP101"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Credits" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextField fx:id="txtCredits" prefHeight="36" promptText="e.g. 3"
+                           style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Course" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <ComboBox fx:id="cboCourse" prefHeight="36" prefWidth="256" promptText="Select Course"
+                          style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Description" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #374151;"/>
+                <TextArea fx:id="txtDescription" prefHeight="70" wrapText="true"
+                          style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7;"/>
+            </VBox>
+
+            <Label fx:id="lblError" wrapText="true" style="-fx-text-fill: #dc2626; -fx-font-size: 11px;" text=""/>
+
+            <HBox spacing="8">
+                <Button fx:id="btnSave" onAction="#handleSave" text="💾  Save"
+                        prefWidth="118" prefHeight="38"
+                        style="-fx-background-color: #b91c1c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                <Button fx:id="btnUpdate" onAction="#handleUpdate" text="✏  Update"
+                        prefWidth="118" prefHeight="38" disable="true"
+                        style="-fx-background-color: #d97706; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            </HBox>
+            <HBox spacing="8">
+                <Button fx:id="btnDelete" onAction="#handleDelete" text="🗑  Delete"
+                        prefWidth="118" prefHeight="38" disable="true"
+                        style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                <Button onAction="#handleClear" text="↺  Clear"
+                        prefWidth="118" prefHeight="38"
+                        style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="12" HBox.hgrow="ALWAYS"
+              style="-fx-background-color: white; -fx-background-radius: 14;
+                     -fx-padding: 22; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);">
+            <Label text="Subject List" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #991b1b;"/>
+            <TableView fx:id="tblSubjects" VBox.vgrow="ALWAYS"
+                       style="-fx-border-color: #fee2e2; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <columns>
+                    <TableColumn fx:id="colId"       text="ID"          prefWidth="80"/>
+                    <TableColumn fx:id="colName"     text="Subject"     prefWidth="200"/>
+                    <TableColumn fx:id="colCode"     text="Code"        prefWidth="100"/>
+                    <TableColumn fx:id="colCredits"  text="Credits"     prefWidth="80"/>
+                    <TableColumn fx:id="colCourse"   text="Course"      prefWidth="180"/>
+                </columns>
+                <placeholder><Label text="No subjects found." style="-fx-text-fill: #9ca3af;"/></placeholder>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

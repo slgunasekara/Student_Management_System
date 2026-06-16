@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="16" style="-fx-padding: 0;"
+      xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/21"
+      fx:controller="lk.ijse.sams.controller.AttendanceController">
+
+    <Label text="Mark Attendance"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+
+    <!-- Session selector bar -->
+    <HBox spacing="14" alignment="CENTER_LEFT"
+          style="-fx-background-color: white; -fx-background-radius: 12;
+                 -fx-padding: 16 20; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),8,0,0,2);">
+        <VBox spacing="4" prefWidth="200">
+            <Label text="Course" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+            <ComboBox fx:id="cboCourse" prefHeight="36" prefWidth="200" promptText="Select Course"
+                      onAction="#onCourseSelected"
+                      style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7;"/>
+        </VBox>
+        <VBox spacing="4" prefWidth="220">
+            <Label text="Subject" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+            <ComboBox fx:id="cboSubject" prefHeight="36" prefWidth="220" promptText="Select Subject"
+                      onAction="#onSubjectSelected"
+                      style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7;"/>
+        </VBox>
+        <VBox spacing="4" prefWidth="220">
+            <Label text="Class Session" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #7f1d1d;"/>
+            <ComboBox fx:id="cboSession" prefHeight="36" prefWidth="220" promptText="Select Session"
+                      onAction="#onSessionSelected"
+                      style="-fx-border-color: #fecaca; -fx-border-radius: 7; -fx-background-radius: 7;"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox alignment="CENTER" spacing="4">
+            <Label fx:id="lblSessionInfo" text="—"
+                   style="-fx-font-size: 12px; -fx-text-fill: #6b7280; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Attendance Table Card -->
+    <VBox spacing="12" VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white; -fx-background-radius: 14;
+                 -fx-padding: 20; -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.07),10,0,0,3);">
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Students in Session"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #991b1b;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <!-- Bulk actions -->
+            <Button onAction="#markAllPresent" text="✅ All Present"
+                    style="-fx-background-color: #16a34a; -fx-text-fill: white; -fx-font-size: 12px;
+                           -fx-background-radius: 7; -fx-cursor: hand; -fx-padding: 6 12;"/>
+            <Button onAction="#markAllAbsent" text="❌ All Absent"
+                    style="-fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-size: 12px;
+                           -fx-background-radius: 7; -fx-cursor: hand; -fx-padding: 6 12;"/>
+            <Button fx:id="btnSaveAttendance" onAction="#handleSaveAttendance" text="💾  Save All"
+                    style="-fx-background-color: #b91c1c; -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-font-size: 13px; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 8 18;"/>
+        </HBox>
+
+        <TableView fx:id="tblAttendance" VBox.vgrow="ALWAYS"
+                   style="-fx-border-color: #fee2e2; -fx-border-radius: 8; -fx-background-radius: 8;">
+            <columns>
+                <TableColumn fx:id="colStudentId"   text="Student ID"   prefWidth="100"/>
+                <TableColumn fx:id="colRegNo"       text="Reg. No."     prefWidth="120"/>
+                <TableColumn fx:id="colName"        text="Student Name" prefWidth="180"/>
+                <TableColumn fx:id="colStatus"      text="Status"       prefWidth="160"/>
+                <TableColumn fx:id="colRemarks"     text="Remarks"      prefWidth="200"/>
+            </columns>
+            <placeholder>
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Select a course, subject and session to mark attendance"
+                           style="-fx-text-fill: #9ca3af; -fx-font-size: 13px;"/>
+                </VBox>
+            </placeholder>
+        </TableView>
+
+        <!-- Summary bar -->
+        <HBox spacing="24" alignment="CENTER_LEFT"
+              style="-fx-padding: 10 0 0 0;">
+            <Label fx:id="lblPresent"
+                   text="Present: 0"
+                   style="-fx-text-fill: #16a34a; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            <Label fx:id="lblAbsent"
+                   text="Absent: 0"
+                   style="-fx-text-fill: #dc2626; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            <Label fx:id="lblLate"
+                   text="Late: 0"
+                   style="-fx-text-fill: #d97706; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+            <Label fx:id="lblTotal"
+                   text="Total: 0"
+                   style="-fx-text-fill: #374151; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+        </HBox>
+    </VBox>
+</VBox>

@@ -243,3 +243,8 @@ src/main/
 - Press **F11** to toggle fullscreen mode
 - All IDs are auto-generated (e.g., STU001, C001, SES001)
 - Attendance records are **upserted** — marking the same session twice updates the existing record
+
+## Screen Shots
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/3890623b-17ed-48ef-8765-5a673fc83597" />
+
+
